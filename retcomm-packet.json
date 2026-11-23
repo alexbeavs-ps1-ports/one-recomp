@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "id": "one-psx",
+  "name": "One",
+  "kind": "recomp",
+  "platform": "psx",
+  "source_repo": "one-recomp",
+  "rom_identity": {
+    "crc32": [
+      "762ecbf6"
+    ],
+    "md5": [
+      "265b5570a13d12d717724b4414544d60"
+    ],
+    "sha1": [
+      "015c0bee311f711733df05755e51d4d2dba4534d"
+    ],
+    "disc_serials": [
+      "SLUS-00469"
+    ],
+    "sizes": [
+      60448752
+    ],
+    "filenames": [
+      "One (USA).cue",
+      "One (USA) (Track 1).bin"
+    ],
+    "track_counts": [
+      5
+    ],
+    "disc_fps": [
+      "b3e726bf30fe25453aba96de9e728751b96f93844fe998b1f6cc647c7358020c"
+    ],
+    "require_cue": true
+  },
+  "rom_extensions": [
+    ".cue",
+    ".bin",
+    ".chd"
+  ],
+  "bios_identity": {
+    "required": true,
+    "name": "SCPH1001.BIN",
+    "profile": "SCPH1001",
+    "crc32": [
+      "37157331"
+    ],
+    "md5": [
+      "924e392ed05558ffdb115408c263dccf"
+    ],
+    "sha1": [
+      "10155d8d6e6e832d6ea66db9bc098321fb5e8ebf"
+    ],
+    "sha256": [
+      "71af94d1e47a68c11e8fdb9f8368040601514a42a5a399cda48c7d3bff1e99d3"
+    ],
+    "sizes": [
+      524288
+    ],
+    "filenames": [
+      "SCPH1001.BIN"
+    ]
+  },
+  "release": {
+    "github": "alexbeavs-ps1-ports/one-recomp",
+    "allow_prerelease": false,
+    "asset_glob": {
+      "windows-x64": "one-*-windows-x64.zip",
+      "linux-x64": "one-*-linux-x64.zip",
+      "macos-arm64": "one-*-macos-arm64.zip",
+      "macos-x64": "one-*-macos-x64.zip"
+    }
+  },
+  "launch": {
+    "windows": "one.exe",
+    "linux": "one",
+    "macos": "one"
+  },
+  "build": {
+    "source": {
+      "github": "alexbeavs-ps1-ports/one-recomp",
+      "ref": ""
+    },
+    "toolchain": {
+      "id": "cmake-clang-v1",
+      "min_version": "1.0.14"
+    },
+    "generate": {
+      "engine": "psxrecomp",
+      "config": "game.toml"
+    },
+    "cmake": {
+      "build_dir": "build",
+      "target": "psx-runtime",
+      "config": "Release"
+    }
+  }
+}

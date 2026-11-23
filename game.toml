@@ -1,0 +1,59 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "One"
+id = "SLUS-00469"
+players = 1
+exe = "disc/SLUS_004.69"
+disc = "disc/One (USA).cue"
+discs = ["disc/One (USA).cue"]
+disc_serials = ["SLUS-00469"]
+load_address = "0x80010000"
+entry_pc = "0x8001CCBC"
+text_size = "0x000DE000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "One (USA) (Track 1).bin"
+cue_name = "One (USA).cue"
+boot_exe = "SLUS_004.69"
+known_sizes = [60448752]
+known_md5 = [
+  "265b5570a13d12d717724b4414544d60",
+]
+known_sha1 = [
+  "015c0bee311f711733df05755e51d4d2dba4534d",
+]
+known_crc32 = [
+  "762ecbf6",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH1001.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+bios_hle = false
+window_title = "One Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 5
+required_disc_fp = "b3e726bf30fe25453aba96de9e728751b96f93844fe998b1f6cc647c7358020c"
